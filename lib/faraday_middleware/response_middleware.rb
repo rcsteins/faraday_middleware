@@ -103,7 +103,7 @@ module FaradayMiddleware
   if defined?(Faraday::RequestOptions)
     begin
       Faraday::RequestOptions.from(:preserve_raw => true)
-    rescue NoMethodError
+    rescue NoMethodError, NameError
       Faraday::RequestOptions.send(:include, OptionsExtension)
     end
   end
